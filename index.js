@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import apiRouter from "./api/index.js"
+import apiRouter from "./api/index.js";
+import { endpoints } from './controllers/index.js';
 
 const app = express();
 
@@ -9,9 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/api', apiRouter);
 
-app.get('/',(req, res)=>{
-    res.send("Welcome to Bill Management System");
-})
+app.get('/',endpoints)
 
 const PORT = process.env.PORT || 5000; //here we use 5000 OR the other one, which will be used while deployment
 // const CONNECTION_URL = 'mongodb://localhost:27017/esd';

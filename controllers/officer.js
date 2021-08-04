@@ -112,6 +112,32 @@ export const checkAllBill = async (req, res) => {
     }
 }
 
+export const checkAllUsers = async (req, res) => {
+    const query = req.body;
+    try {
+
+        const result = await User.find(query);
+        if (!result.length)
+            return res.status(404).json({
+                status: "Failed",
+                message: "Your Query Parameters Does not Match any User. Check your query"
+            })
+        else
+            res.status(200).json({
+                status: "Success",
+                message: "All records are fethced successfully",
+                records: result
+            })
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            status: "Failed",
+            message: "Something went wrong"
+        })
+    }
+}
+
 export const updateBill = async (req, res) => {
     const data = req.body;
 
@@ -179,3 +205,30 @@ export const deleteBill = async (req, res) => {
     }
 }
 
+export const deleteUser = async (req, res) => {
+    const { meterNumber } = req.params;
+    try {
+        const result = await User.findOneAndDelete({ meterNumber });
+        if (result){
+            // If any data is present then delete that also
+            const data = await Data.findOneAndDelete({ meterNumber });
+            res.status(200).json({
+                status: "Success",
+                message: "User and his billing info removed completely",
+                deleted_record: result
+            })
+        }
+        else
+            res.status(404).json({
+                status: "Failed",
+                message: "No Such User Found"
+            })
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            status: "Failed",
+            message: "Something went wrong"
+        })
+    }
+}
