@@ -28,14 +28,14 @@ export const endpoints = (req, res) => {
                         username: "prashant123",
                         password: "Prashant@123",
                     },
-                    endpoint: "/user/register",
+                    endpoint: "/user/auth",
                 },
                 {
                     function: "Check Your Bill Using Your Meter Number",
                     method: "GET",
                     authorization: "No Authorization needed",
-                    endpoint: "/user/meterNumber",
-                    example: "/user/A1010"
+                    endpoint: "/user/check-bill/meterNumber",
+                    example: "/user/check-bill/A1010"
                 },
                 {
                     function: "Pay Your Bill",
@@ -50,7 +50,7 @@ export const endpoints = (req, res) => {
                         amount: "300",
                     },
                     endpoint: "/user/pay-bill/meterNumber",
-                    example: "/user/A1010"
+                    example: "/user/pay-bill/A1010"
                 },
                 {
                     function: "Update the User Information",
@@ -155,7 +155,7 @@ export const endpoints = (req, res) => {
                         Authorization:"Bearer <your token>",
                         secret_key: "<your secret_key>"
                     },
-                    endpoint: "/officer/delete-bill/meterNumber",
+                    endpoint: "/officer/delete-user/meterNumber",
                     example:  "/officer/delete-user/ST1010",
                 },
             ]
