@@ -12,6 +12,9 @@ update and delete the bill
 by the department
 3) **User Database** -> Contains the user's data along with there meter number. Only User can make entry to the collection and update the collection
 
+**Image Description**
+
+<img src="Architecture.png"/>
 
 
 * The base URL is:  http://ebill-management-system.herokuapp.com/ 
