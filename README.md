@@ -10,7 +10,8 @@ We have 3 collections in database
 update and delete the bill
 2) **Officer Database** -> This is the collection of registed officers from the department. There is no endpoint to register officer that has to be done
 by the department
-3) **User Database** -> Contains the user's data along with there meter number. Only User can make entry to the collection and update the collection
+3) **User Database** -> Contains the user's data along with there meter number. When any user registers himself his meter is registered but his bill is 
+not created in Bill Database as that has to be entered by department officer.Only User can make entry to the collection and update the collection
 
 **Image Description**
 
